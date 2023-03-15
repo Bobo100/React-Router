@@ -46,7 +46,7 @@ function HomePage() {
                 <p>在src\App.tsx中，我們需要使用以下內容：</p>
 
                 <Prism language="typescript" style={vscDarkPlus}>
-                    {`<Router basename="/Homework-01-Welcome-Page">
+                    {`<Router basename="/React-Router-Example-01">
     <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/RouterBasic" element={<RouterBasic />} />
@@ -57,9 +57,9 @@ function HomePage() {
 
                 <h2>BrowserRouter</h2>
                 <p>basename：是react-router-dom提供的一個屬性，用來設定Router的基本路徑。</p>
-                <p>像我們這邊設定了basename="/Homework-01-Welcome-Page"，所以我們的Router的基本路徑就是：https://localhost:3000/Homework-01-Welcome-Page。</p>
+                <p>像我們這邊設定了basename="/React-Router-Example-01"，所以我們的Router的基本路徑就是：https://localhost:3000/React-Router-Example-01。</p>
                 <p>之後的路徑就會在這個基本路徑之後。</p>
-                <p>例如：https://localhost:3000/Homework-01-Welcome-Page/RouterBasic。</p>
+                <p>例如：https://localhost:3000/React-Router-Example-01/RouterBasic。</p>
                 <h2>Routes</h2>
                 <p>Routes：是react-router-dom提供的一個元件，用來定義應用程式的路由規則。在Routes中可以設定多個Route元件，每個Route都能夠對應到特定的路徑規則。</p>
                 <h2>Route</h2>
@@ -72,9 +72,9 @@ function HomePage() {
 <Route path="*" element={<NotFoundPage />}></Route>`}
                 </Prism>
 
-                <p>第一行：path="/"，代表的是首頁，也就是https://localhost:3000/Homework-01-Welcome-Page。</p>
-                <p>第二行：path="/RouterBasic"，代表的是https://localhost:3000/Homework-01-Welcome-Page/RouterBasic。</p>
-                <p>第三行：path="*"，代表的是所有沒有定義的路徑，也就是俗稱的404頁面。，也就是https://localhost:3000/Homework-01-Welcome-Page/NotFoundPage。</p>
+                <p>第一行：path="/"，代表的是首頁，也就是https://localhost:3000/React-Router-Example-01。</p>
+                <p>第二行：path="/RouterBasic"，代表的是https://localhost:3000/React-Router-Example-01/RouterBasic。</p>
+                <p>第三行：path="*"，代表的是所有沒有定義的路徑，也就是俗稱的404頁面。，也就是https://localhost:3000/React-Router-Example-01/NotFoundPage。</p>
 
                 <p>他們會分別用Home、RouterBasic、NotFoundPage來渲染。</p>
 
@@ -94,7 +94,7 @@ import { NotFoundPage } from './pages/Error';
 function App() {
     return (
         <div className="App">
-            <Router basename="/Homework-01-Welcome-Page">
+            <Router basename="/React-Router-Example-01">
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="*" element={<NotFoundPage />}></Route>
