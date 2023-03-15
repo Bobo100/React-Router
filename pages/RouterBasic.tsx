@@ -17,7 +17,7 @@ function HomePage() {
 
                 <h3>注意，我們這邊使用的是React-Router-V6，而不是React-Router-V5。</h3>
 
-                <p>首先，我們需要安裝React-Router-V6。</p>
+                <p>首先，我們需要安裝React-Router-V6。(我已經假定你能夠成功使用npm start來開啟的React專案)</p>
                 <p>在終端機輸入以下指令：</p>
                 <Prism language="typescript" style={vscDarkPlus}>
                     {`npm i react-router-dom`}
@@ -72,7 +72,7 @@ function HomePage() {
 <Route path="*" element={<NotFoundPage />}></Route>`}
                 </Prism>
 
-                <p>第一行：path="/"，代表的是首頁，也就是https://localhost:3000/React-Router-Example-01。</p>
+                <p>第一行：path="/"，代表的是首頁，也就是https://localhost:3000/。因為我們設定了basename="/React-Router-Example-01"，所以首頁就是https://localhost:3000/React-Router-Example-01。</p>
                 <p>第二行：path="/RouterBasic"，代表的是https://localhost:3000/React-Router-Example-01/RouterBasic。</p>
                 <p>第三行：path="*"，代表的是所有沒有定義的路徑，也就是俗稱的404頁面。，也就是https://localhost:3000/React-Router-Example-01/NotFoundPage。</p>
 
@@ -138,6 +138,9 @@ export const NotFoundPage = () => {
                 </Prism>
 
                 <p>完成上述的程式碼後，我們就可以在瀏覽器中看到Home頁面了。而且當你到其他沒有定義的路徑時，也會顯示404頁面。</p>
+
+                <a href="https://react-router-example-01.vercel.app/">觀看範例</a>
+                <a href="https://github.com/Bobo100/React-Router-Example-01">前往看範例的程式碼</a>
             </div>
 
 

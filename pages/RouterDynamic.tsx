@@ -86,6 +86,9 @@ function App() {
                 <p>當然，我們也可以把路由配置放在一個外部的文件中，然後通過 {` <Routes> `}組件的 {` children `}屬性來進行渲染。<br />
                     像是使用一個 {` routes.tsx `}文件來進行路由配置，然後在 {` App.tsx `}文件中進行引入。</p>
 
+                <a href="https://react-router-example-01.vercel.app/">觀看範例</a>
+                <a href="https://github.com/Bobo100/React-Router-Example-01">前往看範例的程式碼</a>
+                
                 <h2>動態URL參數</h2>
                 <p>動態URL參數是一種可以在路由中使用參數的方式，這樣就可以在路由中使用參數，並且可以通過參數來進行不同的操作。</p>
 
@@ -158,9 +161,9 @@ function User() {
                 <Link href="/RouterParameters">
                     回到上一篇RouterParameters
                 </Link>
-                <Link href="/RouterTransition">
+                {/* <Link href="/RouterTransition">
                     前往Router轉場
-                </Link>
+                </Link> */}
             </div>
         </Layout>
     )
