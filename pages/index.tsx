@@ -22,8 +22,7 @@ function HomePage() {
                 <a href="">通往Next.js的學習旅程</a>
 
                 
-
-
+                <p>如果你還是想要學習React-Router，那麼我們就繼續往下看。</p>
                 <h3>下一篇：Router的基本使用</h3>
                 <div>
                     <Link href="/RouterBasic">
