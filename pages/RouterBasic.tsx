@@ -42,6 +42,11 @@ function HomePage() {
 
                 <p>目前，你只需要看過就好，之後會有更詳細的介紹。</p>
 
+                <p>如果你真的很想很想知道，我們這邊大概給你說明一下底層原理</p>
+                <p>透過監聽瀏覽器 url 地址的變化，觸發指定的 React 組件渲染在畫面上，從而實現 SPA 的目的。<br />
+                    當使用者點擊路由 Link 時，React-router-dom 會透過 pushState 或 replaceState 方法修改瀏覽器的 URL 地址，並將相應的網頁內容渲染到畫面上。<br />
+                    在後退或向前瀏覽時，也能正確地還原之前訪問的網頁。</p>
+
                 <p>接著，我們需要在src\App.tsx中使用Router。</p>
                 <p>在src\App.tsx中，我們需要使用以下內容：</p>
 
