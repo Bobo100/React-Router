@@ -55,8 +55,13 @@ a {
     padding: 10px;
 }
 
+.link_container {
+    display: flex;
+}
+
 .link_container > a {
     margin: 10px;
+    margin-left: 0;
 }
 
 h1 {
@@ -81,4 +86,8 @@ h3 {
     background-color: #0f1114;
 
     padding: 10px;
+}
+
+pre > code {
+    font-size: 1vw !important;
 }

@@ -11,7 +11,7 @@ function HomePage() {
             <Head>
                 <title>RouterBasic</title>
             </Head>
-            <div>
+            <div className="flex flex-column">
                 <h1>Router的基本語法</h1>
                 <p>這邊，我們將介紹Router的基本語法，並且使用Router來實現SPA。</p>
 

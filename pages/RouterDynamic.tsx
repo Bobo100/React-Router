@@ -11,14 +11,12 @@ function HomePage() {
             <Head>
                 <title>RouterDynamic</title>
             </Head>
-            <div>
+            <div className="flex flex-column">
                 <h1>動態Router介紹</h1>
                 <p>我們將介紹React Router v6中的動態路由配置，以及動態路由載入以及動態URL參數。</p>
 
                 <h2>動態路由載入(又俗稱懶加載)</h2>
-                <p>RouterDynamic 是 React Router v6 中的一個新特性，用於動態載入路由配置。<br />
-                    在以前的版本中，所有的路由都必須先在組件中配置好，然後再通過 {` <Routes> `}組件進行呈現。<br />
-                    這樣對於大型應用來說會變得非常冗長且難以維護。</p>
+                <p>React Router v6 提供了 lazy 和 Suspense 組件來實現動態路由載入，也就是俗稱的懶加載。</p>
 
                 <Prism language="typescript" style={vscDarkPlus}>
                     {`import React from 'react';
@@ -43,52 +41,102 @@ function App() {
 
                 <p>在上面的代碼中，我們使用了 {` <React.Suspense> `}組件來包裹動態載入的組件，並且使用了 {` <React.lazy> `}來進行動態載入。<br />
                     這樣就可以在需要的時候才去載入組件，而不是一開始就載入所有的組件。</p>
+                <a href="https://react-router-example-01.vercel.app/">觀看範例</a>
+                <a href="https://github.com/Bobo100/React-Router-Example-01">前往看範例的程式碼</a>
 
                 <h2>動態路由配置</h2>
                 <p>動態路由配置是一種更簡單的動態路由載入方式，它可以讓我們在不修改代碼的情況下，動態的添加或者刪除路由。<br />
                     這樣就可以在不修改代碼的情況下，動態的添加或者刪除路由。</p>
+                <p>比如說，在你的應用程序中，你可能會有一個基於數據庫中的內容動態生成路由的需求，這時候你可以編寫代碼來動態生成路由配置，而不是手動在代碼中添加或刪除路由。</p>
+                <h3>動態路由配置的實現</h3>
 
                 <Prism language="typescript" style={vscDarkPlus}>
-                    {`import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+                    {`//routes.tsx
+import React from 'react';
+import { Route, Navigate } from 'react-router-dom';
+import { Home } from './pages/Home';
+import { NotFoundPage } from './pages/Error';
+import { About } from './pages/About';
 
 const routes = [
     {
         path: '/',
-        element: <Home />
+        element: <Home />,
+        title: 'Home'
     },
     {
         path: '/about',
-        element: <React.Suspense fallback={<div>Loading...</div>}><About /></React.Suspense>
-    },
-    {
-        path: '/contact',
-        element: <React.Suspense fallback={<div>Loading...</div>}><Contact /></React.Suspense>
+        element: <React.Suspense fallback={<div>Loading...</div>}><About /></React.Suspense>,
+        title: 'About'
+
     }
 ];
 
-function App() {
+export const defaultRoutePath = '/';
+export const fallbackRoutePath = '/404';
+
+export function getPageTitle(pathname: string) {
+    const route = routes.find((route) => route.path === pathname);
+    return route ? route.title : 'My App';
+}
+
+export function getRoutes() {
     return (
-        <BrowserRouter>
-            <Routes>
-                {routes.map((route, index) => (
-                    <Route key={index} path={route.path} element={route.element} />
-                ))}
-            </Routes>
-        </BrowserRouter>
+        <React.Fragment>
+            {routes.map((route) => (
+                <Route path={route.path} element={route.element} />
+            ))}
+            <Route path="/404" element={<NotFoundPage />} />
+            <Route path="*" element={<Navigate to="/404" replace />} />
+        </React.Fragment>
     );
 }`}
                 </Prism>
 
-                <p>在上面的代碼中，我們將路由配置放在了一個陣列中，然後通過 {` <Routes> `}組件的 {` children `}屬性來進行渲染。<br />
-                    這樣就可以在不修改代碼的情況下，動態的添加或者刪除路由。</p>
+                <Prism language="typescript" style={vscDarkPlus}>
+                    {`//App.tsx
+import { BrowserRouter as Router, Routes } from 'react-router-dom';
+import { getRoutes } from './routes';
 
-                <p>當然，我們也可以把路由配置放在一個外部的文件中，然後通過 {` <Routes> `}組件的 {` children `}屬性來進行渲染。<br />
-                    像是使用一個 {` routes.tsx `}文件來進行路由配置，然後在 {` App.tsx `}文件中進行引入。</p>
+function App() {
+  return (
+    <div className='App'>
+      <Router basename="/">
+        <Routes>
+          {getRoutes()}
+        </Routes>
+      </Router>
+    </div>
+  );
+}
 
-                <a href="https://react-router-example-01.vercel.app/">觀看範例</a>
-                <a href="https://github.com/Bobo100/React-Router-Example-01">前往看範例的程式碼</a>
-                
+export default App;
+`}
+                </Prism>
+
+                <p>我們把React-Router V6 中的路由配置抽取出來，放在了 {` getRoutes() `}函數中，然後在 {` App.tsx `}中引入 {` getRoutes() `}函數，並且在 {` <Routes> `}組件中使用 {` getRoutes() `}函數。</p>
+                <p>並且我們還寫了一個 {` getPageTitle() `}函數，用來獲取當前路由的標題，這樣我們就可以在 {` <title> `}標籤中使用當前路由的標題。</p>
+                <p>例如在Home.tsx中，我們可以這樣寫：</p>
+
+                <Prism language="typescript" style={vscDarkPlus}>
+                    {`import { useLocation } from "react-router-dom";
+import { getPageTitle } from "../routes";
+export const Home = () => {
+    const location = useLocation();
+    const pageTitle = getPageTitle(location.pathname);
+
+    return (
+        <div>
+            <h1>{pageTitle}</h1>
+        </div>
+    );
+};
+`}
+                </Prism>
+
+                <a href="https://react-router-example-02.vercel.app/">觀看範例</a>
+                <a href="https://github.com/Bobo100/React-Router-Example-02">前往看範例的程式碼</a>
+
                 <h2>動態URL參數</h2>
                 <p>動態URL參數是一種可以在路由中使用參數的方式，這樣就可以在路由中使用參數，並且可以通過參數來進行不同的操作。</p>
 
@@ -151,12 +199,9 @@ function User() {
     );
 }`}
                 </Prism>
-
-
-
-
             </div>
-            <h3>下一篇：動態Router</h3>
+
+
             <div className="link_container">
                 <Link href="/RouterParameters">
                     回到上一篇RouterParameters

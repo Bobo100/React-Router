@@ -9,7 +9,7 @@ function HomePage() {
             <Head>
                 <title>RouterParameters</title>
             </Head>
-            <div>
+            <div className="flex flex-column">
                 <h1>React-Router-V6的參數</h1>
                 <p>首先介紹一下前面提到的Router的參數。</p>
                 <p>
