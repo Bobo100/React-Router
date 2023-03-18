@@ -13,7 +13,9 @@ function HomePage() {
                 <h1>React-Router-V6的參數</h1>
                 <p>首先介紹一下前面提到的Router的參數。</p>
                 <p>
-                    {`<BrowserRouter>：使用HTML5的history API來建立URL和響應用戶請求，主要用於Web應用中。`}
+                    {`<BrowserRouter>`}：使用HTML5的history API來建立URL和響應用戶請求，主要用於Web應用中。<br/>
+                    在傳統的 Web 應用程式中，網頁 URL 改變會導致整個頁面重新加載，這樣會導致頁面閃爍，使用體驗差。為了解決這個問題，HTML5 提供了 history API。<br/>
+                    history API 是一組 JavaScript 方法，讓開發者可以在不重新加載整個頁面的情況下，改變網頁的 URL。這樣可以實現在同一個頁面上顯示不同的內容，從而提升使用體驗。
                 </p>
                 <p>
                     {`<HashRouter>：使用URL上的hash來建立路徑，主要用於不支持HTML5 history API的瀏覽器（如舊版IE）或靜態網頁。`}

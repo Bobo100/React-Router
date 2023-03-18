@@ -143,9 +143,27 @@ export const NotFoundPage = () => {
                 </Prism>
 
                 <p>完成上述的程式碼後，我們就可以在瀏覽器中看到Home頁面了。而且當你到其他沒有定義的路徑時，也會顯示404頁面。</p>
+                <p>另外React-Router V6提供了一個語法讓我們可以連結到其他頁面</p>
+                <p>只要使用Link元件，就可以連結到其他頁面。</p>
+                <p>例如：我們可以在Home頁面中，加入以下內容：</p>
 
+                <Prism language="typescript" style={vscDarkPlus}>
+                    {`import { Link } from 'react-router-dom';
+export const Home = () => {
+    return (
+        <div>
+            <h1>Home</h1>
+            <Link to="/about">About</Link>
+        </div>
+    )
+}
+`}
+                </Prism>
+
+                <p>這樣我們就可以在Home頁面中，點擊About連結，就可以連結到About頁面。</p>
                 <a href="https://react-router-example-01.vercel.app/">觀看範例</a>
                 <a href="https://github.com/Bobo100/React-Router-Example-01">前往看範例的程式碼</a>
+
             </div>
 
 

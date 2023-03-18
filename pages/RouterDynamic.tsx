@@ -201,6 +201,7 @@ function User() {
                 </Prism>
             </div>
 
+            <p>到這邊，恭喜你已經學會了React-Router V6的各種用法。</p>
 
             <div className="link_container">
                 <Link href="/RouterParameters">
