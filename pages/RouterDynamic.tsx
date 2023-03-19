@@ -139,6 +139,7 @@ export const Home = () => {
 
                 <h2>動態URL參數</h2>
                 <p>動態URL參數是一種可以在路由中使用參數的方式，這樣就可以在路由中使用參數，並且可以通過參數來進行不同的操作。</p>
+                <p>作法很簡單就是當你使用了：開頭，就會變成動態參數，下面有個範例</p>
 
                 <Prism language="typescript" style={vscDarkPlus}>
                     {`import React from 'react';
@@ -201,11 +202,11 @@ function User() {
                 </Prism>
             </div>
 
-            <p>到這邊，恭喜你已經學會了React-Router V6的各種用法。</p>
+            <p>到這邊，恭喜你已經學會了常見的React-Router V6用法。</p>
 
             <div className="link_container">
-                <Link href="/RouterParameters">
-                    回到上一篇RouterParameters
+                <Link href="/RouterComponents">
+                    回到上一篇RouterComponents
                 </Link>
                 {/* <Link href="/RouterTransition">
                     前往Router轉場

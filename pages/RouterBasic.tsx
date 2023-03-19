@@ -172,8 +172,8 @@ export const Home = () => {
                 <Link href="/">
                     回到上一篇
                 </Link>
-                <Link href="/RouterParameters">
-                    前往Router參數
+                <Link href="/RouterComponents">
+                    前往Router組件
                 </Link>
             </div>
         </Layout>
