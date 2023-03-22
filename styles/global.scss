@@ -1,3 +1,9 @@
+$navbar-height: 80px;
+
+* {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -9,10 +15,6 @@ body {
 
 code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
-}
-
-* {
-    box-sizing: border-box;
 }
 
 .flex {
@@ -43,8 +45,11 @@ code {
     align-items: flex-start;
     box-sizing: border-box;
     flex-direction: column;
-    margin: 20px auto;
+    margin: 20px;
+    margin-top: 0;
     max-width: 1440px;
+
+    padding-top: $navbar-height;
 }
 
 a {
@@ -94,4 +99,33 @@ pre > code {
 
 span {
     color: #61dafb;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: $navbar-height;
+    background-color: #0f1114;
+    z-index: 100;
+    transition: top 0.3s;
+
+    padding-left: 20px;
+
+    display: flex;
+    align-items: center;
+}
+
+.navbar--hidden {
+    top: -$navbar-height;
+}
+
+
+@media screen and (max-width: 768px) {
+    .container {
+        padding-top: 0;
+    }
+    .navbar {
+        display: none;
+    }
 }
