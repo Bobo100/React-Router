@@ -2,7 +2,6 @@ import Head from "next/head";
 import Link from "next/link";
 import Layout from '../components/layout';
 
-
 function HomePage() {
     return (
         <Layout>
@@ -23,7 +22,7 @@ function HomePage() {
                 <h2>如果你有打算學習Next.js(我也會這麼推薦你)，那麼你就不必再去學習React-Router了。</h2>
                 <p>因為Next.js已經幫我們封裝好了React-Router，所以我們只需要使用Next.js的Router就可以了。</p>
 
-                <a href="">通往Next.js的學習旅程</a>
+                <a href="https://react-next-js-introduce.vercel.app/">通往Next.js的學習旅程</a>
 
 
                 <p>如果你還是想要學習React-Router，那麼我們就繼續往下看。</p>
