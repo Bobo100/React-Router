@@ -58,6 +58,25 @@ a {
 
     border: 1px solid #61dafb;
     padding: 10px;
+
+    display: inline-block;
+
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+        background-color: #61dafb;
+        color: #0f1114;
+    }
+}
+
+a.active {
+    background-color: #61dafb;
+    color: #0f1114;
+
+    &:hover {
+        background-color: #0f1114;
+        color: #61dafb;
+    }
 }
 
 .link_container {
@@ -119,7 +138,6 @@ span {
 .navbar--hidden {
     top: -$navbar-height;
 }
-
 
 @media screen and (max-width: 768px) {
     .container {
