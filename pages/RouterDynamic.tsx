@@ -1,10 +1,7 @@
 import Head from "next/head";
 import Link from "next/link";
 import Layout from '../components/layout';
-import { Prism } from 'react-syntax-highlighter';
-import { vscDarkPlus } from 'react-syntax-highlighter/dist/cjs/styles/prism';
-
-
+import { CopyToClipboard } from "../components/Code/CopyToClipboard";
 function HomePage() {
     return (
         <Layout>
@@ -18,7 +15,7 @@ function HomePage() {
                 <h2>動態路由載入(又俗稱懶加載)</h2>
                 <p>React Router v6 提供了 lazy 和 Suspense 組件來實現動態路由載入，也就是俗稱的懶加載。</p>
 
-                <Prism language="typescript" style={vscDarkPlus}>
+                <CopyToClipboard>
                     {`import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
@@ -37,7 +34,7 @@ function App() {
     </BrowserRouter>
   );
 }`}
-                </Prism>
+                </CopyToClipboard>
 
                 <p>在上面的代碼中，我們使用了 {` <React.Suspense> `}組件來包裹動態載入的組件，並且使用了 {` <React.lazy> `}來進行動態載入。<br />
                     這樣就可以在需要的時候才去載入組件，而不是一開始就載入所有的組件。</p>
@@ -50,7 +47,7 @@ function App() {
                 <p>比如說，在你的應用程序中，你可能會有一個基於數據庫中的內容動態生成路由的需求，這時候你可以編寫代碼來動態生成路由配置，而不是手動在代碼中添加或刪除路由。</p>
                 <h3>動態路由配置的實現</h3>
 
-                <Prism language="typescript" style={vscDarkPlus}>
+                <CopyToClipboard>
                     {`//routes.tsx
 import React from 'react';
 import { Route, Navigate } from 'react-router-dom';
@@ -91,9 +88,9 @@ export function getRoutes() {
         </React.Fragment>
     );
 }`}
-                </Prism>
+                </CopyToClipboard>
 
-                <Prism language="typescript" style={vscDarkPlus}>
+                <CopyToClipboard>
                     {`//App.tsx
 import { BrowserRouter as Router, Routes } from 'react-router-dom';
 import { getRoutes } from './routes';
@@ -112,13 +109,13 @@ function App() {
 
 export default App;
 `}
-                </Prism>
+                </CopyToClipboard>
 
                 <p>我們把React-Router V6 中的路由配置抽取出來，放在了 {` getRoutes() `}函數中，然後在 {` App.tsx `}中引入 {` getRoutes() `}函數，並且在 {` <Routes> `}組件中使用 {` getRoutes() `}函數。</p>
                 <p>並且我們還寫了一個 {` getPageTitle() `}函數，用來獲取當前路由的標題，這樣我們就可以在 {` <title> `}標籤中使用當前路由的標題。</p>
                 <p>例如在Home.tsx中，我們可以這樣寫：</p>
 
-                <Prism language="typescript" style={vscDarkPlus}>
+                <CopyToClipboard>
                     {`import { useLocation } from "react-router-dom";
 import { getPageTitle } from "../routes";
 export const Home = () => {
@@ -132,7 +129,7 @@ export const Home = () => {
     );
 };
 `}
-                </Prism>
+                </CopyToClipboard>
 
                 <a href="https://react-router-example-02.vercel.app/">觀看範例</a>
                 <a href="https://github.com/Bobo100/React-Router-Example-02">前往看範例的程式碼</a>
@@ -141,7 +138,7 @@ export const Home = () => {
                 <p>動態URL參數是一種可以在路由中使用參數的方式，這樣就可以在路由中使用參數，並且可以通過參數來進行不同的操作。</p>
                 <p>作法很簡單就是當你使用了：開頭，就會變成動態參數，下面有個範例</p>
 
-                <Prism language="typescript" style={vscDarkPlus}>
+                <CopyToClipboard>
                     {`import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
@@ -175,7 +172,7 @@ function App() {
         </BrowserRouter>
     );
 }`}
-                </Prism>
+                </CopyToClipboard>
 
                 <p>在上面的代碼中，我們在 {` /user/:id `}路由中使用了 {` :id `}來表示動態URL參數。<br />
                     當我們訪問 {` /user/1 `}路由時，就會匹配到 {` /user/:id `}路由，並且 {` :id `}會被替換成 {` 1 `}。<br />
@@ -185,7 +182,7 @@ function App() {
                     我們可以通過 {` useParams() `}來獲取到 {` :id `}參數。</p>
                 <p>以下是User.tsx的代碼：</p>
 
-                <Prism language="typescript" style={vscDarkPlus}>
+                <CopyToClipboard>
                     {`// User.tsx
 import React from 'react';
 import { useParams } from 'react-router-dom';
@@ -199,7 +196,7 @@ function User() {
         </div>
     );
 }`}
-                </Prism>
+                </CopyToClipboard>
             </div>
 
             <p>到這邊，恭喜你已經學會了常見的React-Router V6用法。</p>

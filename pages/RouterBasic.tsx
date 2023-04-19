@@ -2,9 +2,7 @@ import Head from "next/head";
 import Link from "next/link";
 import Layout from '../components/layout';
 import React from 'react';
-import { Prism } from 'react-syntax-highlighter';
-import { vscDarkPlus } from 'react-syntax-highlighter/dist/cjs/styles/prism';
-
+import { CopyToClipboard } from "../components/Code/CopyToClipboard";
 function HomePage() {
     return (
         <Layout>
@@ -19,17 +17,17 @@ function HomePage() {
 
                 <p>首先，我們需要安裝React-Router-V6。(我已經假定你能夠成功使用npm start來開啟的React專案)</p>
                 <p>在終端機輸入以下指令：</p>
-                <Prism language="typescript" style={vscDarkPlus}>
+                <CopyToClipboard>
                     {`npm i react-router-dom`}
-                </Prism>
+                </CopyToClipboard>
                 <p>即可安裝React-Router-V6。</p>
 
                 <p>接著，我們需要在src\App.tsx中引入React-Router-V6。</p>
                 <p>在src\App.tsx中，我們需要引入以下內容：</p>
 
-                <Prism language="typescript" style={vscDarkPlus}>
+                <CopyToClipboard>
                     {`import {BrowserRouter as Router, Routes, Route} from "react-router-dom";`}
-                </Prism>
+                </CopyToClipboard>
 
                 <p>BrowserRouter：是react-router-dom提供的一個容器，用來封裝應用程序要使用的所有路由器。它使用HTML5的history API來保持UI和URL的同步。</p>
                 <p>那v6版本中還有其他的Router嗎？</p>
@@ -50,7 +48,7 @@ function HomePage() {
                 <p>接著，我們需要在src\App.tsx中使用Router。</p>
                 <p>在src\App.tsx中，我們需要使用以下內容：</p>
 
-                <Prism language="typescript" style={vscDarkPlus}>
+                <CopyToClipboard>
                     {`<Router basename="/React-Router-Example-01">
     <Routes>
         <Route path="/" element={<Home />} />
@@ -58,7 +56,7 @@ function HomePage() {
         <Route path="*" element={<NotFoundPage />}></Route>
     </Routes>
 </Router>`}
-                </Prism>
+                </CopyToClipboard>
 
                 <h2>BrowserRouter</h2>
                 <p>basename：是react-router-dom提供的一個屬性，用來設定Router的基本路徑。</p>
@@ -71,11 +69,11 @@ function HomePage() {
                 <p>Route：是react-router-dom提供的一個元件，在路由定義中配對到指定路徑時，會渲染Route內部所產生的組件。這些組件通常是一些自定義的頁面或介面。Route內部還可以配置其他選項，例如：確認權限、重定向等。</p>
                 <p>我們這邊就有三個Route，分別是：</p>
 
-                <Prism language="typescript" style={vscDarkPlus}>
+                <CopyToClipboard>
                     {`<Route path="/" element={<Home />} />
 <Route path="/RouterBasic" element={<RouterBasic />} />
 <Route path="*" element={<NotFoundPage />}></Route>`}
-                </Prism>
+                </CopyToClipboard>
 
                 <p>第一行：path="/"，代表的是首頁，也就是https://localhost:3000/。因為我們設定了basename="/React-Router-Example-01"，所以首頁就是https://localhost:3000/React-Router-Example-01。</p>
                 <p>第二行：path="/RouterBasic"，代表的是https://localhost:3000/React-Router-Example-01/RouterBasic。</p>
@@ -85,7 +83,7 @@ function HomePage() {
 
                 <h3>下面我們提供一個簡單完整的範例：</h3>
 
-                <Prism language="typescript" style={vscDarkPlus}>
+                <CopyToClipboard>
                     {`// 路徑是 src/App.tsx
 import {
     BrowserRouter as Router,
@@ -111,11 +109,11 @@ function App() {
   
 export default App;
   `}
-                </Prism>
+                </CopyToClipboard>
 
                 <p>並且創立對應的Home元件</p>
 
-                <Prism language="typescript" style={vscDarkPlus}>
+                <CopyToClipboard>
                     {`// 路徑是 src/pages/Home.tsx
 export const Home = () => {
     return (
@@ -125,11 +123,11 @@ export const Home = () => {
     )
 }
 `}
-                </Prism>
+                </CopyToClipboard>
 
                 <p>創立對應的NotFoundPage元件</p>
 
-                <Prism language="typescript" style={vscDarkPlus}>
+                <CopyToClipboard>
                     {`// 路徑是 src/pages/Error.tsx
 export const NotFoundPage = () => {
     return (
@@ -140,14 +138,14 @@ export const NotFoundPage = () => {
     )
 }
 `}
-                </Prism>
+                </CopyToClipboard>
 
                 <p>完成上述的程式碼後，我們就可以在瀏覽器中看到Home頁面了。而且當你到其他沒有定義的路徑時，也會顯示404頁面。</p>
                 <p>另外React-Router V6提供了一個語法讓我們可以連結到其他頁面</p>
                 <p>只要使用Link元件，就可以連結到其他頁面。</p>
                 <p>例如：我們可以在Home頁面中，加入以下內容：</p>
 
-                <Prism language="typescript" style={vscDarkPlus}>
+                <CopyToClipboard>
                     {`import { Link } from 'react-router-dom';
 export const Home = () => {
     return (
@@ -158,7 +156,7 @@ export const Home = () => {
     )
 }
 `}
-                </Prism>
+                </CopyToClipboard>
 
                 <p>這樣我們就可以在Home頁面中，點擊About連結，就可以連結到About頁面。</p>
                 <a href="https://react-router-example-01.vercel.app/">觀看範例</a>
